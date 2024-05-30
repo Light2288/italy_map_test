@@ -17,21 +17,22 @@ $.get(ROOT_PATH + "/static/italy.json", function (italyJson) {
       trigger: "item",
       showDelay: 0,
       transitionDuration: 0.2,
-      triggerOn: 'click'
+      triggerOn: 'click',
+      formatter: (data) =>
+        `<p><b>${data.name}: </b>${data.value}%</small></p>`
     },
     visualMap: {
-      left: "left",
+      left: "200",
+      bottom: "150",
       min: 0,
       max: 19,
       inRange: {
         color: [
-          // "#313695",
-          // "#4575b4",
-          // "#74add1",
-          // "#abd9e9",
-          // "#e0f3f8",
-          "#ffffff",
-          "#000da6",
+          '#4F98E2',
+          '#3373B6',
+          '#205E9B',
+          '#144C85',
+          '#023467',
         ],
       },
       calculable: true,
@@ -53,27 +54,35 @@ $.get(ROOT_PATH + "/static/italy.json", function (italyJson) {
     // },
     series: [
       {
-        name: "Italy",
+        name: "Italia",
         type: "map",
         roam: false,
         map: "Italy",
         emphasis: {
           label: {
-            show: true,
+            show: false,
+            color: 'black'
           },
           itemStyle: {
-            areaColor: 'green',
+            areaColor: '#089994',
           }
         },
         selectedMode: 'single',
         select: {
           itemStyle: {
-            areaColor: 'green',
-          }
+            areaColor: '#089994',
+          },
+          label: {
+            show: false,
+            color: 'black'
+          },
         },
         itemStyle: {
-          borderColor: '#fff',
+          borderColor: '#E9ECEF',
           borderWidth: 1,
+        },
+        label: {
+          color: 'black',
         },
         data: [
           { name: "Lombardia", value: 1 },
