@@ -144,3 +144,17 @@ document.getElementById('myButton').onclick = function() {
   link.click();
   document.body.removeChild(link);
 }
+
+document.getElementById('myButton2').onclick = function() {
+  console.log("Select")
+  myChart.dispatchAction({
+    type: 'select',
+    name: 'Abruzzo'
+  });
+  myChart.dispatchAction({
+    type: 'showTip',
+    seriesIndex: 0,
+    name: 'Abruzzo'
+  })
+}
+
